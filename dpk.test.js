@@ -1,4 +1,5 @@
 const { deterministicPartitionKey } = require("./dpk");
+const { longTestKey } = require("./testkeys");
 
 describe("deterministicPartitionKey", () => {
   it("Returns the literal '0' when given no input", () => {
@@ -18,8 +19,7 @@ describe("deterministicPartitionKey", () => {
 
   it("Returns the hash string of length 128 when given partitionKey more than 256 as input", () => {
     const trivialKey = deterministicPartitionKey({
-      partitionKey:
-        "asfsafasfasfsafsafsafasfsafafsafasfasfsafaasfsafasfasfsafsafsafasfsafafsafasfasfsafasfasfasfasfasfsafasasgsdgdsgdfgdfgdhdfhfhdfhdfhfdhfdhdfhdfhdfhfdhfdhdfhdfhdfhdfhfdhdfhdfhdfhdfhdfhdfhdfhfdfhfdhdfhfhfdhdfhdfhdfhdfhdfhdfhfdhdfhdfsfasfasfasfasfsafasasgsdgdsgdfgdfgdhdfhfhdfhdfhfdhfdhdfhdfhdfhfdhfdhdfhdfhdfhdfhfdhdfhdfhdfhdfhdfhdfhdfhfdfhfdhdfhfhfdhdfhdfhdfhdfhdfhdfhfdhdfhdf",
+      partitionKey: longTestKey,
     });
     expect(trivialKey).toHaveLength(128);
   });
